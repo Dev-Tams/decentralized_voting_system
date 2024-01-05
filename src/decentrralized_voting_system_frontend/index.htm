@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Voting System</title>
+
+  <script type="module" src="index.js"></script>
+    
+</head>
+<body>
+    <section class="header">
+
+        <h1> Welcome to Decentralized Voting Boot</h1>
+
+
+
+       <p>Are your votes safe and secured?</p>
+        
+
+       <p><strong> Yes, your votes are safe and secured using blockchain technology.
+        
+                    Blockchain technology ensures the integrity and transparency of the voting process. Each vote is cryptographically secured and recorded on a decentralized ledger.
+                
+                    Exactly! Once your vote is recorded on the blockchain, it becomes immutable and cannot be altered. This guarantees the integrity of the entire voting system.
+                    
+                    That's our top priority! If you have any more questions, feel free to ask <a href="#"> got questions?</a>.
+    </strong></p>
+       
+    </section>
+
+    <h2>Decentralized Voting System</h2>
+
+    <!-- User Management Form -->
+    <div>
+    <form id="userForm">
+        <h3>User Management</h3>
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" required>
+        <button type="button" onclick="addUser()">Add User</button>
+    </form>
+</div>
+
+
+
+ 
+
+    <!-- Ballot Creation Form -->
+    <form id="ballotForm">
+        <h3>Ballot Creation</h3>
+        <label for="electionId">Election ID:</label>
+        <input type="number" id="electionId" required>
+        <label for="options">Options (comma-separated):</label>
+        <input type="text" id="options" required>
+        <label for="startTime">Start Time:</label>
+        <input type="datetime-local" id="startTime" required>
+        <label for="endTime">End Time:</label>
+        <input type="datetime-local" id="endTime" required>
+        <button type="button" onclick="addBallot()">Add Ballot</button>
+    </form>
+
+    <!-- Voting Form -->
+    <form id="voteForm">
+        <h3>Voting</h3>
+        <label for="voterId">Voter ID:</label>
+        <input type="number" id="voterId" required>
+        <label for="candidate">Candidate:</label>
+        <input type="text" id="candidate" required>
+        <label for="voteElectionId">Election ID:</label>
+        <input type="number" id="voteElectionId" required>
+        <button type="button" onclick="castVote()">Cast Vote</button>
+    </form>
+
+    <!-- Result Tabulation Form -->
+    <form id="resultForm">
+        <h3>Result Tabulation</h3>
+        <label for="resultElectionId">Election ID:</label>
+        <input type="number" id="resultElectionId" required>
+        <button type="button" onclick="calculateResults()">Calculate Results</button>
+    </form>
+
+    <div id="resultContainer"></div>
+
+</body>
+</html>

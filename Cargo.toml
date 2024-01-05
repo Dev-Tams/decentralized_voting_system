@@ -1,0 +1,4 @@
+[workspace]
+members = [
+    "src/decentralized_voting_system_backend",
+]

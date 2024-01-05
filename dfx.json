@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "canisters": {
+    "decentralized_voting_system": {
+      "type": "rust",
+      "package": "decentralized_voting_system_backend",
+      "candid": "src/decentralized_voting_system_backend/decentralized_voting_system_backend.did"
+    }
+  },
+  "output_env_file": ".env"
+}

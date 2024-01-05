@@ -1,0 +1,73 @@
+module : public {
+  type User = record {
+    id : nat64;
+    name : text;
+    email : text;
+  };
+
+  type Ballot = record {
+    id : nat64;
+    electionId : nat64;
+    options : vec text;
+    startTime : Time;
+    endTime : Time;
+  };
+
+  type Vote = record {
+    id : nat64;
+    voterId : nat64;
+    candidate : text;
+    electionId : nat64;
+    timestamp : Time;
+  };
+
+  type ElectionResult = record {
+    candidate : text;
+    voteCount : nat64;
+  };
+
+  type Error = variant {
+    InvalidPayload : record { msg : text };
+    NotFound : record { msg : text };
+    Unauthorized : record { msg : text };
+    AlreadyInit : record { msg : text };
+  };
+
+  type FundUser = record {
+    password : text;
+    user_id : nat64;
+    amount : nat32;
+  };
+
+  type InitPayload = record {
+    password : text;
+    email : text;
+  };
+
+  public shared {
+    // User Management
+    public func add_user : (UserPayload) -> async Result_1;
+
+    // Ballot Creation
+    public func add_ballot : (
+      electionId : nat64,
+      options : vec text,
+      startTime : Time,
+      endTime : Time,
+    ) -> async Result;
+
+    // Voting Process
+    public func cast_vote : (
+      voterId : nat64,
+      candidate : text,
+      electionId : nat64,
+    ) -> async Result_2;
+
+    // Result Tabulation
+    public func calculate_election_results : (electionId : nat64) -> async Result_3;
+
+    // Additional Services
+    public func get_user : (nat64) -> async Result_1 query;
+    public func init_voting_contract : (InitPayload) -> async Result_5;
+  };
+};
